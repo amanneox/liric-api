@@ -1,0 +1,165 @@
+  <head>
+      <meta charset="utf-8">
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Liric | Home</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
+      <link rel="stylesheet" href="../css/scribbler-global.css">
+      <link rel="stylesheet" href="../css/scribbler-landing.css">
+      <link rel="author" href="humans.txt">
+
+  </head>
+  <body>
+    <nav>
+      <div class="logo"></div>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item"><a href="doc.html" class="link link--dark"><i class="fa fa-book"></i> Documentation</a></li>
+        <li class="menu__item"><a href="" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1 class="hero__title">Liric</h1>
+      <p class="hero__description">Getting lyrics records is now easy with Liric.</p>
+    </div>
+    <div class="hero__terminal">
+      <pre>
+        <code class="shell-session demo">terminal ~ $ </code>
+      </pre>
+    </div>
+    <div class="wrapper">
+      <div class="installation">
+        <h3 class="section__title">Implementation</h3>
+        <div class="tab__container">
+          <ul class="tab__menu">
+            <li class="tab active" data-tab="mac">HTTP POST</li>
+            <li class="tab" data-tab="linux">PHP Curl</li>
+            <li class="tab" data-tab="win">Python</li>
+          </ul>
+          <pre class="nohighlight code">
+            <code class="tab__pane active mac">https://liric.herokuapp.com/api/song/Song Name <br>
+              example:https://liric.herokuapp.com/api/song/Goodbye <br><br>
+              https://liric.herokuapp.com/api/artist/Artist Name <br>
+              example:https://liric.herokuapp.com/api/artist/Divine
+
+            </code>
+            <code class="tab__pane linux"><?php <br>
+$ch = curl_init(); <br>
+$url='https://liric.herokuapp.com/api/song/Brand%20New'; <br>
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); <br>
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); <br>
+
+curl_setopt($ch, CURLOPT_URL,$url); <br>
+
+$result=curl_exec($ch); <br>
+
+curl_close($ch); <br>
+var_dump(json_decode($result, true)); <br>
+
+?></code>
+            <code class="tab__pane win">
+              import requests <br>
+              import json     <br>
+
+              payload ='Divine' <br>
+              url='https://liric.herokuapp.com/api/artist/'+payload <br>
+              res = requests.get(url) <br>
+              print(res) <br>
+              print(res.json()) <br>
+</code>
+          </pre>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature__item">
+          <h3 class="section__title">Fast & Light</h3>
+          <p>Start searching your favourite song lyrics with over 55 K records.</p>
+        </div>
+        <div class="feature__item">
+          <h3 class="section__title">Easy handling</h3>
+          <p>Use dataset for creating amazing song libriaries and app.</p>
+        </div>
+        <div class="feature__item">
+          <h3 class="section__title">Secure</h3>
+          <p>Not infected by bugs</p>
+        </div>
+
+      </div>
+      <div class="keybinding">
+        <ul class="keybinding__detail">
+          <h3 class="keybinding__title">Default Keybindings</h3>
+          <li>Unique id of Record <span class="keybinding__label">_id</span></li>
+          <li>Artist Name <span class="keybinding__label">artist</span></li>
+          <li>Song Name <span class="keybinding__label">song</span></li>
+          <li>Link  <span class="keybinding__label">link</span></li>
+          <li>Song Lyrics  <span class="keybinding__label">text</span></li>
+        </ul>
+        <ul class="keybinding__detail">
+          <h3 class="keybinding__title">Markdown Keybindings</h3>
+          <span>Not Yet Set</span>
+        </ul>
+      </div>
+      <div class="callout">
+        <p>Read our documentation for advanced keybindings and customization</p>
+        <a href="doc.html" class="button--primary">Documentation</a>
+      </div>
+    </div>
+    <div class="changelog">
+      <div class="wrapper">
+        <h3 class="section__title">Changelog</h3>
+        <div class="changelog__item">
+          <div class="changelog__meta">
+            <h4 class="changelog__title">v0.7</h4>
+            <small class="changelog__date">10/12/2017</small>
+          </div>
+          <div class="changelog__detail">
+            <ul>
+              <li>Improving the writing workflow with better key bindings</li>
+              <li>Design updates</li>
+              <li>SSL Verification for web hooks</li>
+              <li>Render Emoji</li>
+            </ul>
+          </div>
+        </div>
+        <div class="changelog__item">
+          <div class="changelog__meta">
+            <h4 class="changelog__title">v0.6</h4>
+            <small class="changelog__date">7/30/2017</small>
+          </div>
+          <div class="changelog__detail">
+            <ul>
+              <li>Adding Unicode support</li>
+              <li>Basic text highlighting</li>
+              <li>Fresh Design</li>
+            </ul>
+          </div>
+        </div>
+        <div class="changelog__item">
+          <div class="changelog__meta">
+            <h4 class="changelog__title">v0.5</h4>
+            <small class="changelog__date">5/10/2017</small>
+          </div>
+          <div class="changelog__detail">
+            <ul>
+              <li>Save default md file in new folders</li>
+              <li>Ability to quick search on existing notes</li>
+            </ul>
+          </div>
+        </div>
+        <div class="changelog__callout">
+          <a href="#" class="button--secondary">Checkout Full Log</a>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../js/scribbler.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script type="text/javascript">
+
+
+    </script>
+  </body>
